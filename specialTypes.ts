@@ -23,9 +23,15 @@ function secret(data: unknown) {
 
 //let ourValue: unknown = 11;
 //let str: string = ourValue;
-// нельзя присвоить unkown какому то другому типу 
+// нельзя присвоить unkown какому то другому типу
 
+// VOID
+// This type means that the function finishes but doesn't return any value
 
+// Часто используется для callBack функции
 
+function sayHello(): void {
+  console.log("Hi"); // функция завершается, но не возвращает значение
+}
 
-//NEVER type   -  is  empty value 
+// Если наша функция ничего не возращает она по default буде undefind
