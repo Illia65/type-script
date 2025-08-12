@@ -29,10 +29,9 @@ function getResponce(res: ResponseStatus) {
   if (res === "ok") {
     return "We have got responce from server";
   }
-if(res === "fail") {
-    return "Our responce has been canseld"
-} 
-
+  if (res === "fail") {
+    return "Our responce has been canseld";
+  }
 }
 
 type Status = "success" | "error";
@@ -46,3 +45,29 @@ handle("success");
 //Уяви, ти даєш людині вибір: чай, кава або сік.
 type Drink = "tea" | "coffee" | "juice";
 //І вона не зможе замовити "борщ" 😄 — бо такого варіанту нема.
+
+const value = {
+  clor: "green",
+} as const;
+
+//  as const  =  readonly
+// Только для чтения (Изменять нельзя)
+
+interface Config {
+  readonly apiUrl: string;
+}
+
+//Когда использовать readonly
+//ID, ключи, или любые уникальные значения, которые не должны меняться
+
+type EventName = "click" | "change";
+
+type EventHandler = `on${EventName}`;
+
+function addEvennHadler(e: EventHandler) {
+  console.log(`Added handler: ${e}`);
+}
+
+addEvennHadler("onclick");
+addEvennHadler("onchange");
+// addEvennHadler("onsubmit");
