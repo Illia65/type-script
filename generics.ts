@@ -69,3 +69,16 @@ function createEntity<T extends { id: string; createdAt: Date }>(arg: T) {
 }
 
 createEntity({ id: "1", createdAt: new Date(), name: 13 });
+
+//T extends any[] → перевіряє, чи T є масивом будь-якого типу елементів.
+
+//Якщо так → повертає тип true.
+
+//Якщо ні → повертає тип false.
+
+type isArray<T> = T extends any[] ? true : false;
+type Check1 = isArray<string>; // false, бо string — не масив
+type Check2 = isArray<number[]>; // true, бо number[] — масив
+
+type RandomName<T> = T extends string ? { value: string } : { value: T };
+
