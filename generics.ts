@@ -57,7 +57,15 @@ function getFirstElement<T>(el: T[]): T | undefined {
 }
 const getResult = getFirstElement([1, 2, 4]);
 
+interface MainResponce<T> {}
 
-interface MainResponce<T>  {
+//дозволяє додавти свої поля але те що передано в параметрах обовзяково повинно бути в обєкті!
+// В нашо випадку  { id: string; createdAt: Date } ОБОВЯЗКОВО!
 
+//Extends обмежує типи та дає змогу додавати свої!
+
+function createEntity<T extends { id: string; createdAt: Date }>(arg: T) {
+  return arg.id;
 }
+
+createEntity({ id: "1", createdAt: new Date(), name: 13 });
